@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>米特在线</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link href="css/layer.css" rel="stylesheet" />
+	<link href="css/layui.css" rel="stylesheet" />
+    <style type="text/css">
+        .myinput{
+            display: inline;
+            width:30%;
+            max-width: 300px;
+        }
+        .myinput:focus{
+            border: 1px solid red;
+        }
+        .footer{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            height: 44px;
+            line-height: 44px;
+            padding: 0 15px;
+            1background-color: #eee;
+            width:100%;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/layer.js"></script>
+
+
+	<script type="text/javascript">
+       $(function(){
+           $('#play').on('click', function(){
+               var url = $("#url").val();
+               if(url == ""){
+                   layer.msg("请输入内容")
+               }else{
+                   layer.open({
+                       type: 2,
+                       title: '在线播放',
+                       area: ['100%', '100%'],
+                       shade: 0.8,
+                       maxmin: false,
+                       closeBtn: 1,
+                       shadeClose: true,
+                       content: 'play.html?url=' + url
+                   });
+               }
+           });
+       })
+	function play(){
+		var url=document.getElementById('url').value;
+
+	}
+</script>
+</head>
+<body class="alarm-bg">
+   <h2 style="color:red;">米特乐园</h2>
+   <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+       <legend>在线播放M3U8源</legend>
+   </fieldset>
+   <input type="text" name="url" id="url" placeholder="请输入URL" autocomplete="off" class="layui-input myinput"  >
+   <button class="layui-btn layui-btn-danger" id="play" >播放</button>
+   <div class="footer">
+       <div class="layui-main">
+           <p>© 2020 <a href="/">米特乐园</a> </p>
+           <p>
+               学习乐园
+           </p>
+           <div class="site-union">
+
+           </div>
+       </div>
+   </div>
+</body>
+
+</html>
